@@ -10,7 +10,6 @@ import Container from "../components/Container";
 const Home = () => {
   return (
     <>
-    <div>home</div>
       <Container class1="home-wrapper-1 py-5">
         <div className="row">
           <div className="col-6">
