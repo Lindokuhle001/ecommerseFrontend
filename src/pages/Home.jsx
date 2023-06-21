@@ -6,10 +6,37 @@ import ProductCard from "../components/ProductCard";
 import SpecialProduct from "../components/SpecialProduct";
 import Container from "../components/Container";
 // import { services } from "../utils/Data";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setProducts } from "../state/index";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const products = [
+    {
+      title: "lindo",
+      slug: "",
+      description: "",
+      price: "",
+      category: "",
+      quantity: 0,
+      sold: "",
+      images: [],
+      color: [],
+      totalrating: "",
+    },
+  ];
+
+
+  useEffect(() => {
+    dispatch(setProducts({ products }));
+  }, [dispatch]);
+
+  const thisProduct = useSelector((state) => state.ecommerse.products);
+  console.log(thisProduct, "lido");
   return (
     <>
+      {/* //banners  */}
       <Container class1="home-wrapper-1 py-5">
         <div className="row">
           <div className="col-6">
@@ -36,7 +63,7 @@ const Home = () => {
                   alt="main banner"
                 />
                 <div className="small-banner-content position-absolute">
-                  <h4>Best Sake</h4>
+                  <h4>Best Price</h4>
                   <h5>iPad S13+ Pro.</h5>
                   <p>
                     From $999.00 <br /> or $41.62/mo.
@@ -108,6 +135,8 @@ const Home = () => {
           </div>
         </div>
       </Container> */}
+
+      {/* catagories */}
       <Container class1="home-wrapper-2 py-5">
         <div className="row">
           <div className="col-12">
@@ -172,6 +201,8 @@ const Home = () => {
           </div>
         </div>
       </Container>
+
+      {/* Featured Collection */}
       <Container class1="featured-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-12">
@@ -262,6 +293,7 @@ const Home = () => {
           <SpecialProduct />
         </div>
       </Container>
+
       <Container class1="popular-wrapper py-5 home-wrapper-2">
         <div className="row">
           <div className="col-12">
@@ -275,6 +307,7 @@ const Home = () => {
           <ProductCard />
         </div>
       </Container>
+
       <Container class1="marque-wrapper home-wrapper-2 py-5">
         <div className="row">
           <div className="col-12">
